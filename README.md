@@ -154,7 +154,7 @@ calcifer ciri2:
 
 
 calcifer downstream:   
-"calcifer.py -path [path] -data [name] -con [list] -con_names [list] -genome [fasta] -rt [se/pe] -gtf [gtf] -mirna [path] -pep [path] -rbp [path]"   
+"calcifer.py -path [path] -data [name] -con [list] -con_names [list] -genome [fasta] -rt [se/pe] -gtf [gtf] -mirna [path] -pep [path] -rbp [path] -rbp_cutoff [cutoff] -ubsjr_filter [cutoff] -min [cutoff] -strand [strand]"   
 
 >-path		Path to the general working directory with the raw read files   
 
@@ -187,7 +187,7 @@ calcifer downstream:
 
 
 calcifer full_run:   
-"calcifer full_run -path [path] -data [name] -star [index] -genome [fasta] -gene_pred [txt] -rt [se/pe] -gtf [gtf] -con [list] -con_names [list] -cpath [path] -bwa [index] -mirna [path] -pep [path] -rbp [path] -t [threads]" 
+"calcifer full_run -path [path] -data [name] -star [index] -genome [fasta] -gene_pred [txt] -rt [se/pe] -gtf [gtf] -con [list] -con_names [list] -cpath [path] -bwa [index] -mirna [path] -pep [path] -rbp [path] -t [threads] -rbp_cutoff [cutoff] -ubsjr_filter [cutoff] -min [cutoff] -strand [strand]" 
   
 >-path		Path to the general working directory with the raw read files   
 
@@ -230,7 +230,7 @@ calcifer full_run:
 
 
 calcifer list:
-"calcifer list -path [path] -circ_list [path] -genome_fasta [fasta] -gtf [gtf] -mirna [path] -pep [path] -rbp [path]" 
+"calcifer list -path [path] -circ_list [path] -genome_fasta [fasta] -gtf [gtf] -mirna [path] -pep [path] -rbp [path] -rbp_cutoff [cutoff] -min [cutoff]" 
   
 >-path		Path to the general working directory with the raw read files   
 
@@ -247,8 +247,6 @@ calcifer list:
 >-rbp			Path to a RBP database [can be downloaded from the MEME motif database, Ray et al. 2013]    
 
 >-rbp-cutoff   Q-value threshold for FIMO results (optional, default = 0.1)
-
->-ubsjr_filter   Minimum unique backsplice junction supporting reads for high confidence circRNAs (optional, default = 2)
 
 >-min   Minimum amino acid length for circRNA peptides (needs to be >= 4) (optional, default = 10)
 
@@ -279,3 +277,4 @@ The following information is provided for each circRNA:
 [5] John, Bino, et al. "Human microRNA targets." PLoS biology 2.11 (2004): e363.
 
 [6] Grant, Charles E., Timothy L. Bailey, and William Stafford Noble. "FIMO: scanning for occurrences of a given motif." Bioinformatics 27.7 (2011): 1017-1018.
+
