@@ -34,8 +34,8 @@ def circexplorer2(args):
     read_type = args.read_type
     cores = args.threads
 
-
     for dataset in datasets:
+
     # change functions based on type of reads #
 
         if read_type == "se":
@@ -72,6 +72,7 @@ def ciri2(args):
     cores = args.threads
 
     for dataset in datasets:
+
     # change functions based on type of reads #
 
         if read_type == "se":
@@ -88,7 +89,6 @@ def ciri2(args):
 
         # function call for ciri2 #
         calcifer_ciri2_modules.ciri2_find(ciri_path, working_dir, gtf_file, genome_path)
-
 
 
 # Main method for downstream analysis of ce2 and ciri2 results #
@@ -262,6 +262,10 @@ subparsers = parser.add_subparsers()
 
 # specify different modes for the pipeline with needed arguments and helps #
 # CIRCexplorer2 mode for a single circRNA detection with CIRCexplorer2 #
+# CIRI2 mode for a single circRNA detection with CIRI2 #
+# Downstream mode for a circRNA downstream analysis of existing CE2/CIRI2 results #
+# List mode to analyze a list of circRNA cooridnates #
+# Full run mode for a complete analysis from full RNA-seq data to functional annotated circRNAs #
 circexplorer2_parser = subparsers.add_parser('circexplorer2',
                                              usage="calcifer.py circexplorer2 -path [path] -data [name] -star [index] "
                                                    "-genome [fasta] -gene_pred [txt] -rt [se/pe] -t [threads]")
@@ -299,7 +303,8 @@ ciri2_parser.set_defaults(func=ciri2)
 downstream_parser = subparsers.add_parser('downstream', usage="calcifer.py downstream -path [path] -data [data] -con "
                                                               "[list] -con_names [list] -genome_fasta [fasta] -rt "
                                                               "[se/pe] -gtf [path] -mirna [path] -pep [path] "
-                                                              "-rbp [path]")
+                                                              "-rbp [path] -min [cutoff] -rbp_cutoff [cutoff] "
+                                                              "-ubsjr_filter [cutoff] -strand [strand]")
 downstream_parser.add_argument("-path", action="store", dest="path", help="Input a path to the files", required=True)
 downstream_parser.add_argument("-data", action="store", dest="data", help="Input list of names of the datasets",
                                required=True)
@@ -335,7 +340,8 @@ downstream_parser.set_defaults(func=downstream)
 
 
 list_parser = subparsers.add_parser('list', usage="calcifer.py list -path [path] -circ_list [data] -genome_fasta "
-                                                  "[path] -gtf [path] -mirna [path] -pep [path] -rbp [path]")
+                                                  "[path] -gtf [path] -mirna [path] -pep [path] -rbp [path] -min ["
+                                                  "cutoff] -rbp_cutoff [cutoff]")
 list_parser.add_argument("-path", action="store", dest="path", help="Input a path to the files", required=True)
 list_parser.add_argument("-circ_list", action="store", dest="circ_list", help="Path to circRNA list", required=True)
 list_parser.add_argument("-genome_fasta", action="store", dest="genome_fasta", help="Path to fasta-file of ref genome",
@@ -356,7 +362,8 @@ full_run_parser = subparsers.add_parser('full_run', usage="calcifer.py full_run 
                                                           "-star [index] -genome [fasta] -gtf [gtf] -gene_pred [txt] "
                                                           "-rt [se/pe] -con [list] -cpath [ciri2] -bwa [index] "
                                                           "-genome_fasta [fasta] -mirna [path] -pep [path] -rbp [path]"
-                                                          " -t [threads]")
+                                                          "-t [threads] -min [cutoff] -rbp_cutoff [cutoff] "
+                                                          "-ubsjr_filter [cutoff] -strand [strand]")
 full_run_parser.add_argument("-path", action="store", dest="path", help="Input a path to the files", required=True)
 full_run_parser.add_argument("-data", action="store", dest="data", help="Input list of names of the datasets",
                              required=True)
