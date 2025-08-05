@@ -78,7 +78,7 @@ Uniqueness of putative ORF peptide:
 
 # Citing Calcifer
 
-> Manuscript in preparation
+Brezski, A., Murtagh, J., Schulz, M. H., & Zarnack, K. (2024). A systematic analysis of circRNAs in subnuclear compartments. RNA biology, 21(1), 901-916.
 
 ---
 
@@ -277,4 +277,5 @@ The following information is provided for each circRNA:
 [5] John, Bino, et al. "Human microRNA targets." PLoS biology 2.11 (2004): e363.
 
 [6] Grant, Charles E., Timothy L. Bailey, and William Stafford Noble. "FIMO: scanning for occurrences of a given motif." Bioinformatics 27.7 (2011): 1017-1018.
+
 
